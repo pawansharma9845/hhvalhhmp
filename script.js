@@ -10,7 +10,7 @@ function updateCounter() {
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
   
     document.getElementById('counterText').innerHTML = `
-      <div style="font-size: 1.8rem; margin-bottom: 1rem;">Days since we met</div>
+      <div style="font-size: 1.8rem; margin-bottom: 1rem;">Day's since i've been blessed</div>
       <div style="display: flex; gap: 2rem; justify-content: center; align-items: baseline;">
         <div>
           <span style="color: #ffebf0; font-size: 2.8rem; font-weight: 600;">${days}</span>
