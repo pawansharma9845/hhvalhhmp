@@ -1,6 +1,6 @@
 
 function updateCounter() {
-    const startDate = new Date('2023-12-22T00:00:00');
+    const startDate = new Date('2023-12-22T09:20:00');
     const now = new Date();
     const diff = now - startDate;
     
