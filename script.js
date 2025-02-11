@@ -56,13 +56,16 @@ noBtn.addEventListener('click', () => {
   noBtn.textContent = funnyMessages[messageIndex];
   messageIndex = (messageIndex + 1) % funnyMessages.length;
 
-  isMoving = true;
-  noBtn.style.transform = 'translate(0) scale(1)';
-  noBtn.style.transition = 'transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55)';
-  
-  // Immediately reset the state
-  isMoving = false;
+  // Apply the transform animation
+  noBtn.style.transition = 'transform 1s cubic-bezier(0.1, -0.1, 0.1, 0.1)';
+  noBtn.style.transform = 'translate(0, 0) scale(1.01)';
+});
+
+// Listen for the end of the transform transition
+noBtn.addEventListener('transitionend', () => {
+  // Reset the button style once the animation completes
   noBtn.style.transition = 'all 0.1s ease';
+  noBtn.style.transform = 'translate(0, 0) scale(1)';
 });
 
   document.getElementById('yesBtn').addEventListener('click', function() {
