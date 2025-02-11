@@ -1,6 +1,6 @@
 
 function updateCounter() {
-    const startDate = new Date('2023-12-22T09:20:00');
+    const startDate = new Date('2023-12-22T00:00:00');
     const now = new Date();
     const diff = now - startDate;
     
@@ -33,41 +33,45 @@ function updateCounter() {
   }
   setInterval(updateCounter, 1000);
   updateCounter();
+  // Add this at the top of your script
+const funnyMessages = [
+  "Are you sure?😢",
+  "Really really sure?🥺",
+  "Saney please! 😭",
+  "Yesto nagara hai💔",
+  "Tablet khaidinxu feri😭",
+  "Socha hai ramrari 🙄",
+  "Dukha pauli maya 💔",
+  "Janni dherai😒",
+  "Namaste Dhogdiya🙏"
+];
+
+let messageIndex = 0;
+const proposalSection = document.querySelector('.proposal');
+
+
+//  Button Logic
+noBtn.addEventListener('click', () => {
+  // Update the message text on click
+  noBtn.textContent = funnyMessages[messageIndex];
+  messageIndex = (messageIndex + 1) % funnyMessages.length;
+
+  isMoving = true;
+  noBtn.style.transform = 'translate(0) scale(1)';
+  noBtn.style.transition = 'transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55)';
   
-  const noBtn = document.getElementById('noBtn');
-  let isMoving = false;
-  
-  noBtn.addEventListener('mouseenter', () => {
-    if (!isMoving) {
-      const btnRect = noBtn.getBoundingClientRect();
-      const maxX = window.innerWidth - btnRect.width;
-      const maxY = window.innerHeight - btnRect.height;
-      
-      const x = Math.random() * maxX;
-      const y = Math.random() * maxY;
-      
-      noBtn.style.transform = `translate(${x - btnRect.left}px, ${y - btnRect.top}px) scale(1.1)`;
-      noBtn.style.transition = 'transform 0.3s ease-out';
-    }
-  });
-  
-  noBtn.addEventListener('click', () => {
-    isMoving = true;
-    noBtn.style.transform = 'translate(0) scale(1)';
-    noBtn.style.transition = 'transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55)';
-    
-    setTimeout(() => {
-      isMoving = false;
-      noBtn.style.transition = 'all 0.3s ease';
-    }, 500);
-  });
-  
+  // Immediately reset the state
+  isMoving = false;
+  noBtn.style.transition = 'all 0.1s ease';
+});
 
   document.getElementById('yesBtn').addEventListener('click', function() {
     const note = document.getElementById('cuteNote');
     note.classList.add('visible');
     createHeartsBurst();
     document.querySelector('.btn-group').style.display = 'none';
+    noBtn.textContent = "Nai hudaina"; 
+  messageIndex = 0; 
   });
   
 
